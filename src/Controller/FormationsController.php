@@ -14,9 +14,9 @@ class FormationsController extends AbstractController
         return new Response('Formation : '.$slug);
     }
 
-    // #[Route('/formations', 'formations')]
-    // public function index(): Response
-    // {
-    //     return $this->render('formations/index.html.twig');
-    // }
+    #[Route('/formations', 'formations')]
+    public function index(): Response
+    {
+        return $this->render('formations/index.html.twig');
+    }
 }
