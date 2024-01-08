@@ -8,15 +8,18 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class FormationsController extends AbstractController
 {
-    #[Route('/formations/{slug}', 'domaine')]
-    public function domaine(string $slug): Response
+    #[Route('/formations/{domaine}', 'formations', defaults: ['domaine' => ''])]
+    public function domaine(string $domaine): Response
     {
-        return new Response('Formation : '.$slug);
-    }
+        //     return new Response('Formation : '.$domaine);
+        // }
 
-    #[Route('/formations', 'formations')]
-    public function index(): Response
-    {
-        return $this->render('formations/index.html.twig');
+        // #[Route('/formations', 'formations')]
+        // public function index(): Response
+        // {
+        return $this->render(
+            'formations/index.html.twig',
+            ['domaine' => $domaine]
+        );
     }
 }
